@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-require './carbonfin.rb'
+$LOAD_PATH << File.dirname(__FILE__)
+require 'carbonfin'
 
 username = '<username>'
 password = '<password>'

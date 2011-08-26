@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-require './carbonfin.rb'
+$LOAD_PATH << File.dirname(__FILE__)
+require 'carbonfin'
 
 USAGE = "Usage: upload.rb <file0.opml> <file1.opml> <file2.opml> ..."
 OPML_WARNING = "Warning: You should only upload OPML."

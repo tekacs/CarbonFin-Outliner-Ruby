@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-require './carbonfin.rb'
+$LOAD_PATH << File.dirname(__FILE__)
+require 'carbonfin'
 
 USAGE = "Usage: download.rb <format> <name>"
 
@@ -20,9 +21,18 @@ def ext(format)
   return format
 end
 
+def write(name, content)
+  open("#{name}.#{ext(FORMAT)}", 'w') do |f|
+    f.write(content)
+  end
+end
+
+if ARGV[1] == 'ALL'
+  outlines = cfa.outlines
+  outlines.each { |o| write(o.name, o.get(FORMAT)) }
+end
+
 for name in ARGV[1, ARGV.length]
   outline = cfa.outlines_by_name(name)[0]
-  open("#{name}.#{ext(FORMAT)}", 'w') do |f|
-    f.write(outline.get(FORMAT))
-  end
+  write(name, outline.get(FORMAT))
 end
