@@ -27,6 +27,8 @@ List outlines with:
 Download with:
 
     ./download.rb <format> <name>
+    
+Formats are: opml, print, text (and json (internal))
 
 Upload OPML files with:
 
