@@ -6,6 +6,12 @@ Please note that CFOO has not endorsed an official API and so these scripts are 
 
 They are useful as an interim measure until the CFO dev can introduce Dropbox syncing.
 
+The gems 'mechanize' and 'nokogiri' are required.
+
+    gem install mechanize
+
+should install all dependencies.
+
 ## Utility Scripts
 
 First, add your username and password to login.rb.
