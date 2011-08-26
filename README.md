@@ -12,6 +12,12 @@ The gems 'mechanize' and 'nokogiri' are required.
 
 should install all dependencies.
 
+## Easy use
+
+To edit a given outline (on OS X), use:
+
+    ./edit.sh <outline_name>
+
 ## Utility Scripts
 
 First, add your username and password to login.rb.
