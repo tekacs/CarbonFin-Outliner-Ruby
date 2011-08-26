@@ -107,6 +107,17 @@ class CFAgent
     return get(outline_id, :print)
   end
   
+  def delete(outline_id)
+    return false unless logged_in?
+    url = BASE_URL + "/?action=delete&outlineId=#{outline_id}"
+    begin
+      @agent.get(url)
+    rescue Mechanize::ResponseCodeError
+      return false
+    end
+    return true
+  end
+  
   private
   
   def get_auth_cookies
