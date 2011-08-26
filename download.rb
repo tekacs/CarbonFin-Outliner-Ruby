@@ -17,7 +17,7 @@ die "Please login using login.rb first." unless cfa.login
 def ext(format)
   return :html if format == :print
   return :txt if format == :text
-  return :format
+  return format
 end
 
 for name in ARGV[1, ARGV.length]
