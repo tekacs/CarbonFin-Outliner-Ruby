@@ -5,6 +5,6 @@ require 'carbonfin'
 username = '<username>'
 password = '<password>'
 
-cfa = CFAgent.new
+cfa = CarbonFin::Agent.new
 cfa.login(username, password)
 cfa.save_cookies
