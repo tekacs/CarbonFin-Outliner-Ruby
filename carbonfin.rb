@@ -21,7 +21,7 @@ class CFAgent
       load_cookies
       return true if logged_in?
     end
-    return false if (username.nil or password.nil?)
+    return false if (username.nil? or password.nil?)
     login_url = BASE_URL + "?action=login&userid=#{username}"
     login_url += "&password=#{Digest::SHA1.hexdigest(password + PW_SALT)}"
     @agent.get(login_url) # Get login cookie.
@@ -37,7 +37,6 @@ class CFAgent
   end
 
   def logged_in?
-    load_cookies
     return get_auth_cookies.count == 1
   end
   
@@ -66,6 +65,13 @@ class CFAgent
     form.importText = text
     form.checkbox_with(:name => 'importAsTasks').checked = are_tasks
     return submit_form(form)
+  end
+  
+  def outline_names
+    return false unless logged_in?
+    parser = @agent.get(BASE_URL).parser
+    spans = parser.css('.outlineListItem span')
+    return spans.map { |x| x.content }
   end
   
   def outline_ids_by_name(name)

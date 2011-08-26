@@ -20,6 +20,10 @@ Log in with:
 
     ./login.rb
 
+List outlines with:
+
+    ./list.rb
+
 Download with:
 
     ./download.rb <format> <name>
