@@ -10,9 +10,9 @@ end
 
 die USAGE if ARGV.count < 1
 
-cfa = CFAgent.new
+cfa = CarbonFin::Agent.new
 die "Please login using login.rb first." unless cfa.login
 
 for name in ARGV
-  cfa.outline_ids_by_name(name).map { |id| cfa.delete(id) }
+  cfa.outlines_by_name(name).map { |o| o.delete }
 end

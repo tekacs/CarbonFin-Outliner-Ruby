@@ -8,7 +8,7 @@ def die(msg)
   exit 1
 end
 
-cfa = CFAgent.new
+cfa = CarbonFin::Agent.new
 die "Please login using login.rb first." unless cfa.login
 
-puts cfa.outline_names.join("\n")
+puts (cfa.outlines.map{ |o| o.name }).join("\n")

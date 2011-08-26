@@ -11,7 +11,7 @@ end
 
 die USAGE if ARGV.count == 0
 
-cfa = CFAgent.new
+cfa = CarbonFin::Agent.new
 die "Please login using login.rb first." unless cfa.login
 
 for filename in ARGV

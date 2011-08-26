@@ -11,7 +11,7 @@ end
 die USAGE if ARGV.count < 2
 FORMAT = ARGV[0].to_sym
 
-cfa = CFAgent.new
+cfa = CarbonFin::Agent.new
 die "Please login using login.rb first." unless cfa.login
 
 def ext(format)
@@ -21,8 +21,8 @@ def ext(format)
 end
 
 for name in ARGV[1, ARGV.length]
-  id = cfa.outline_ids_by_name(name)[0]
+  outline = cfa.outlines_by_name(name)[0]
   open("#{name}.#{ext(FORMAT)}", 'w') do |f|
-    f.write(cfa.get(id, FORMAT))
+    f.write(outline.get(FORMAT))
   end
 end
